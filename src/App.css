@@ -1,0 +1,158 @@
+#root {
+  max-width: 1280px;
+  text-align: center;
+}
+
+.sticky {
+  position: fixed !important;
+  top: 5rem !important;
+}
+
+.parent_canvas {
+  position: absolute;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  width: 550px;
+  height: 510px;
+  z-index: 1;
+  top: 3rem;
+}
+
+.child_canvas {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.canvas {
+  touch-action: auto !important;
+}
+
+.fiber_canvas{
+  display: flex;
+}
+
+.swiper_container {
+  margin: 5rem 0.25rem 0.25rem 0.25rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.swiper_content{
+  display: flex;
+}
+
+.swiper_wrapper {
+  min-height: 570px;
+}
+
+.swiper_slide {
+  text-align: center;
+  display: flex;
+  align-items: center !important;
+  width: 410px !important;
+  height: 495px !important;
+}
+
+.spline_slide {
+  position: relative;
+  width: 410px !important;
+  height: 495px !important;
+}
+
+.swiper_title {
+  width: 100%;
+  font-size: 1.5rem;
+  font-family: 'Plateia';
+  font-weight: 1000;
+  background: -webkit-linear-gradient(0.25turn, #D69B56, #FDDFBC);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center !important;
+  text-transform: uppercase;
+}
+
+.swiper_box_magic {
+  max-width: 240px;
+  height: 16rem;
+  margin: 5rem;
+}
+
+.swiper_header {
+  text-align: start;
+  font-family: 'Plateia';
+  font-weight: 1000;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 1rem;
+  width: 100%;
+  display: inline-block;
+}
+
+.swiper-button-prev {
+  color: #FDDFBC !important;
+}
+
+.swiper-button-next {
+  color: #FDDFBC !important;
+}
+
+@media screen and (max-width: 762px) {
+
+  .sticky {
+    position: fixed !important;
+    top: 35%;
+  }
+
+  .parent_canvas {
+    height: 410px;
+    width: 90vw;
+    top: 13rem;
+    left: 5%;
+    right: 5%;
+  }
+
+  .swiper_container {
+    width: 100vw;
+    max-width: 100vw;
+    height: 500px;
+    margin: 0;
+    display: inline-block;
+  }
+
+  .swiper_box_magic {
+    display: none;
+  }
+
+  .swiper_slide {
+    width: 310px !important;
+    height: 470px !important;
+  }
+
+  .spline_slide {
+    width: 310px !important;
+    height: 470px  !important;
+  }
+}
+
+@media screen and (min-width: 762px) {
+
+  .sticky {
+    position: fixed !important;
+    top: 5vh;
+    width: 450px;
+    height: 450px;
+  }
+
+  .parent_canvas {
+    top: 7rem;
+    right: 50%;
+    left: 50%;
+  }
+
+  .swiper_container {
+    width: 100%;
+  }
+}

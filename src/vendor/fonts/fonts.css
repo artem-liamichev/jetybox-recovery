@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url(Inter-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  src: url(Inter-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url(Inter-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  src: url(Inter-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 700;
+  src: url(Gilroy-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 500;
+  src: url(Gilroy-Medium.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Gilroy";
+  font-style: normal;
+  font-weight: 400;
+  src: url(Gilroy-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "PirataOne";
+  font-style: normal;
+  font-weight: 400;
+  src: url(PirataOne-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Plateia";
+  font-style: normal;
+  font-weight: 700;
+  src: url(Plateia-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Proxima-Nova";
+  font-style: normal;
+  font-weight: 400;
+  src: url(Proxima-Nova-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Proxima-Nova";
+  font-style: normal;
+  font-weight: 300;
+  src: url(Proxima-Nova-Light.ttf) format("truetype");
+}
