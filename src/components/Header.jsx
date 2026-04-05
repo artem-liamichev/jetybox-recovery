@@ -4,11 +4,14 @@ import { useTranslation } from "react-i18next";
 
 const LOGO_SRC = "/assets/logo-Jpnsoa0I.png";
 const languages = ["ru", "en"];
+const HOME_LOADER_FLAG = "show-home-loader";
 
 function Header() {
   const { t, i18n } = useTranslation();
   const projectsLabel =
     i18n.resolvedLanguage === "ru" ? "Наши проекты" : "Our projects";
+  const isProjectsPage = window.location.pathname === "/projects";
+  const isProjectCasePage = /^\/projects\/\d+$/.test(window.location.pathname);
   const [selected, setSelected] = useState(i18n.resolvedLanguage);
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef();
@@ -27,6 +30,21 @@ function Header() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const navigateTo = (path) => {
+    if (window.location.pathname === path) {
+      setIsOpen(false);
+      return;
+    }
+
+    if (path === "/" && window.location.pathname !== "/") {
+      sessionStorage.setItem(HOME_LOADER_FLAG, "true");
+    }
+
+    window.history.pushState({}, "", path);
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    setIsOpen(false);
+  };
 
   const LanguageLine = () => (
     <svg
@@ -142,7 +160,13 @@ function Header() {
 
         <div className="fixed top-16 w-72"></div>
 
-        <a href="/">
+        <a
+          href="/"
+          onClick={(event) => {
+            event.preventDefault();
+            navigateTo("/");
+          }}
+        >
           <img
             src={LOGO_SRC}
             alt="Jetybox"
@@ -150,7 +174,12 @@ function Header() {
           />
         </a>
 
-        <p className="hidden md:block">+7 (000) 000-00-00</p>
+        <a
+          href="tel:+79836315539"
+          className="hidden font-[Helvetica] text-[14px] text-white md:block"
+        >
+          +7 (983) 631-55-39
+        </a>
 
         <button
           className="flex flex-col justify-center space-y-2 bg-[#2e2e2e] hover:opacity-80 focus:outline-none md:hidden"
@@ -202,7 +231,15 @@ function Header() {
               </h3>
               <ul className="mt-5 flex flex-col gap-y-7 text-base">
                 <li>
-                  <a href="/projects">{projectsLabel}</a>
+                  <a
+                    href="/projects"
+                    onClick={(event) => {
+                      event.preventDefault();
+                      navigateTo("/projects");
+                    }}
+                  >
+                    {projectsLabel}
+                  </a>
                 </li>
               </ul>
               <p className="mb-5 mt-[152px]">
@@ -289,7 +326,12 @@ function Header() {
                   </a>
                 </button>
 
-                <button className="social-button flex h-[26px] w-[26px] items-center justify-center rounded rounded-s bg-[#1C1C1C] text-yellow-300">
+                <a
+                  href="https://www.youtube.com/@jetybox"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-button flex h-[26px] w-[26px] items-center justify-center rounded rounded-s bg-[#1C1C1C] text-yellow-300"
+                >
                   <svg
                     width="17"
                     height="12"
@@ -302,7 +344,7 @@ function Header() {
                       fill="url(#gradient)"
                     ></path>
                   </svg>
-                </button>
+                </a>
               </div>
             </section>
           </div>
@@ -312,26 +354,25 @@ function Header() {
       <div className="mt-3 h-px w-full bg-gradient-to-r from-transparent via-white to-transparent md:mt-0"></div>
       <div className="hidden w-full bg-[#2c2c2c] md:block">
         <nav className="m-auto md:max-w-[1170px] md:px-4">
-          <ul className="flex justify-left gap-x-12 pt-[14px]">
-            <li>
-              <a>{t("Advertising")}</a>
-            </li>
-            <li>
-              <a>{t("Development")}</a>
-            </li>
-            <li>
-              <a>{t("social-networks")}</a>
-            </li>
-            <li>
-              <a>{t("Design")}</a>
-            </li>
-            <li>
-              <a>{t("Telephony")}</a>
-            </li>
-            <li>
-              <a>{t("CRM Systems")}</a>
-            </li>
-          </ul>
+          {!isProjectsPage && (
+            <ul
+              className={`flex justify-left gap-x-12 ${isProjectCasePage ? "pt-[18px] pb-[10px]" : "pt-[14px] pb-[10px]"
+                }`}
+            >
+              <li>
+                <a
+                  href="/projects"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    navigateTo("/projects");
+                  }}
+                  className="font-[Helvetica] text-[14px] text-white/80"
+                >
+                  {projectsLabel}
+                </a>
+              </li>
+            </ul>
+          )}
         </nav>
       </div>
     </header>

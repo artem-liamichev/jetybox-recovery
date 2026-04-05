@@ -11,12 +11,24 @@ import Slider from "./components/Slider";
 import Marquee from "./components/Marquee";
 import SlideExpirience from "./components/SlideExpirience.jsx";
 import ProjectsPage from "./components/ProjectsPage.jsx";
+import ProjectCasePage from "./components/ProjectCasePage.jsx";
 
 const LOADER_LOGO_SRC = "/assets/logo-Jpnsoa0I.png";
+const HOME_LOADER_FLAG = "show-home-loader";
 
 export default function App() {
     const [isLoading, setIsLoading] = useState(true);
     const [pathname, setPathname] = useState(window.location.pathname);
+
+    const showLoader = () => {
+        setIsLoading(true);
+        document.body.style.overflow = "hidden";
+
+        return window.setTimeout(() => {
+            setIsLoading(false);
+            document.body.style.overflow = "auto";
+        }, 1400);
+    };
 
     useEffect(() => {
         const handlePopState = () => setPathname(window.location.pathname);
@@ -31,20 +43,33 @@ export default function App() {
     }, [pathname]);
 
     const isProjectsPage = pathname === "/projects";
+    const projectMatch = pathname.match(/^\/projects\/(\d+)$/);
+    const projectId = projectMatch ? Number(projectMatch[1]) : null;
+    const isProjectCasePage =
+        projectId !== null && projectId >= 1 && projectId <= 8;
 
     useEffect(() => {
-        document.body.style.overflow = "hidden";
-
-        const timer = window.setTimeout(() => {
-            setIsLoading(false);
-            document.body.style.overflow = "auto";
-        }, 1400);
+        const timer = showLoader();
 
         return () => {
             window.clearTimeout(timer);
             document.body.style.overflow = "auto";
         };
     }, []);
+
+    useEffect(() => {
+        if (pathname !== "/" || !sessionStorage.getItem(HOME_LOADER_FLAG)) {
+            return undefined;
+        }
+
+        sessionStorage.removeItem(HOME_LOADER_FLAG);
+        const timer = showLoader();
+
+        return () => {
+            window.clearTimeout(timer);
+            document.body.style.overflow = "auto";
+        };
+    }, [pathname]);
 
     return (
         <>
@@ -70,7 +95,9 @@ export default function App() {
                 </div>
             )}
             <Header />
-            {isProjectsPage ? (
+            {isProjectCasePage ? (
+                <ProjectCasePage projectId={projectId} />
+            ) : isProjectsPage ? (
                 <ProjectsPage />
             ) : (
                 <>
@@ -92,4 +119,3 @@ export default function App() {
         </>
     );
 }
-

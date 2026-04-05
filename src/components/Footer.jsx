@@ -43,9 +43,14 @@ function Footer() {
           <button className="bg-white social-button h-[26px] flex w-[26px] items-center justify-center rounded rounded-s">
             <img src={vkontakte} alt="Описание изображения" />
           </button>
-          <button className="bg-white social-button  h-[26px] flex items-center w-[26px] justify-center rounded rounded-s">
+          <a
+            href="https://www.youtube.com/@jetybox"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white social-button h-[26px] flex w-[26px] items-center justify-center rounded rounded-s"
+          >
             <img src={youtube} alt="Описание изображения" />
-          </button>
+          </a>
         </div>
         <button
           onClick={handleScrollToTop}

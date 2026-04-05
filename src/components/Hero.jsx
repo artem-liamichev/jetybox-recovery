@@ -133,21 +133,21 @@ function Hero() {
             </button>
           </div>
         </div>
-        <div className="z-10 hidden w-full max-w-[540px] flex-col text-left text-white md:col-start-1 md:row-start-2 md:flex md:items-start">
-        <div className="mt-3 flex w-full flex-row items-start gap-3 md:mt-0 md:items-center md:gap-4">
+        <div className="z-10 hidden w-full max-w-[540px] flex-col text-left text-white md:col-start-1 md:row-start-2 md:-mt-20 md:flex md:items-start">
+        <div className="mt-3 flex w-full max-w-[320px] flex-row items-start gap-3 md:mt-0 md:items-start md:gap-4">
           <img
               src={magic}
               alt=""
-              className="mt-0.5 h-[30px] w-[37px] shrink-0 object-contain md:mt-0 md:h-8 md:w-10"
+              className="mt-0.5 h-[30px] w-[37px] shrink-0 object-contain md:mt-[2px] md:h-8 md:w-10"
               width={37}
               height={30}
               loading="lazy"
           />
-          <p className="flex-1 font-[Gilroy] text-left text-xs font-normal leading-snug text-white md:flex-none md:text-sm md:leading-relaxed">
+          <p className="w-[267px] font-[Gilroy] text-left text-xs font-normal leading-4 text-white md:flex-none">
             {t("get-system-solution")}
           </p>
         </div>
-        <div className="mt-5 flex w-full justify-center md:mt-10 md:justify-start">
+        <div className="mt-5 flex w-full justify-center md:mt-6 md:justify-start">
           <button type="button" onClick={openModal} className="w-full max-w-[339px]">
             <div className="main-button button-shadow flex min-h-[50px] items-center justify-center px-4">
               <span>{t("get-audit")}</span>
