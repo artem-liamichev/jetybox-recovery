@@ -3,9 +3,106 @@
   text-align: center;
 }
 
+.app-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 35, 42, 0.3);
+  backdrop-filter: blur(12px);
+}
+
+.app-loader-backdrop {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.12), transparent 18%),
+    radial-gradient(circle at 50% 76%, rgba(214, 155, 86, 0.16), transparent 22%);
+  filter: blur(12px);
+}
+
+.loader-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.loader {
+  display: grid;
+  grid-template-columns: repeat(3, 32px);
+  gap: 10px;
+}
+
+.loader-block {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  animation: loaderBlink 1.05s steps(1, end) infinite;
+}
+
+.loader-block:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+.loader-block:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+.loader-block:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+.loader-block:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+.loader-block:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+.loader-block:nth-child(7) {
+  animation-delay: 0.48s;
+}
+
+.loader-block:nth-child(8) {
+  animation-delay: 0.56s;
+}
+
+.loader-block:nth-child(9) {
+  animation-delay: 0.64s;
+}
+
+.loader-block-muted {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.loader-logo {
+  width: 110px;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes loaderBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
 .sticky {
   position: fixed !important;
   top: 5rem !important;
+  z-index: 40;
 }
 
 .parent_canvas {
@@ -15,7 +112,7 @@
   justify-content: center;
   width: 550px;
   height: 510px;
-  z-index: 1;
+  z-index: 30;
   top: 3rem;
 }
 
@@ -23,13 +120,15 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
+  position: relative;
+  z-index: 30;
 }
 
 .canvas {
   touch-action: auto !important;
 }
 
-.fiber_canvas{
+.fiber_canvas {
   display: flex;
 }
 
@@ -40,7 +139,7 @@
   flex-direction: column;
 }
 
-.swiper_content{
+.swiper_content {
   display: flex;
 }
 
@@ -104,14 +203,51 @@
   .sticky {
     position: fixed !important;
     top: 35%;
+    left: 50%;
+    right: auto !important;
+    width: min(100%, 316px);
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-50%);
   }
 
-  .parent_canvas {
-    height: 410px;
-    width: 90vw;
-    top: 13rem;
-    left: 5%;
-    right: 5%;
+  .hero-spline-column {
+    gap: 0;
+  }
+
+  /* Spline в потоке между заголовком и текстом Hero (мобильная вёрстка) */
+  .hero-spline-column .parent_canvas {
+    position: relative !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: min(100%, 316px) !important;
+    max-width: 100%;
+    height: auto !important;
+    aspect-ratio: 720 / 892;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible;
+  }
+
+  .hero-spline-column .child_canvas {
+    height: 100% !important;
+    overflow: visible !important;
+  }
+
+  .hero-spline-column .child_canvas > div {
+    overflow: visible !important;
+  }
+
+  .hero-spline-column canvas {
+    transform: translateY(10px);
+    transform-origin: center top;
   }
 
   .swiper_container {
@@ -133,7 +269,7 @@
 
   .spline_slide {
     width: 310px !important;
-    height: 470px  !important;
+    height: 470px !important;
   }
 }
 
@@ -146,13 +282,35 @@
     height: 450px;
   }
 
-  .parent_canvas {
-    top: 7rem;
-    right: 50%;
+  .hero-spline-column {
+    position: relative;
+  }
+
+  .hero-spline-column .parent_canvas {
+    position: absolute !important;
+    top: 2rem;
     left: 50%;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    width: 550px !important;
+    height: 510px !important;
   }
 
   .swiper_container {
     width: 100%;
   }
+}
+
+.hero-typed .typed-cursor {
+  color: #fff;
+  font-weight: 300;
+}
+
+.mobile-loop-slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mobile-loop-slider::-webkit-scrollbar {
+  display: none;
 }

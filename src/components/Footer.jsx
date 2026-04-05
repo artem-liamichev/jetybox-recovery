@@ -3,7 +3,7 @@ import telegram from "../assets/tg-icon.svg";
 import vkontakte from "../assets/vk-icon.svg";
 import instagram from "../assets/instagram-icon.svg";
 import youtube from "../assets/youtube-icon.svg";
-import logo from "../assets/logo.svg";
+const LOGO_SRC = "/assets/logo-Jpnsoa0I.png";
 
 function Footer() {
   const { t } = useTranslation();
@@ -18,7 +18,11 @@ function Footer() {
         {/* <h3 className="mt-4 md:mt-[30px] font-['Plateia'] md:font-['Proxima-Nova'] md:text-[46px] text-left uppercase text-xl">
           Logo
         </h3> */}
-        <img src={logo} className="mt-4 md:mt-[30px]" />
+        <img
+          src={LOGO_SRC}
+          alt="JetyBox"
+          className="mt-4 md:mt-[30px] h-8 w-auto object-contain md:h-9"
+        />
 
         <p className="font-['Proxima-Nova'] font-light md:font-bold text-base mt-6 md:mt-[30px] text-left">
           {t("dedugin")}

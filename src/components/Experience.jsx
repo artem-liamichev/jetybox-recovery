@@ -1,9 +1,7 @@
 import useDetectScroll from "@smakss/react-scroll-direction"
 import Spline from "@splinetool/react-spline";
 
-
-
-function Experience() {
+function Experience({ children }) {
     const { scrollDir } = useDetectScroll()
 
 
@@ -33,8 +31,9 @@ function Experience() {
     return (
         <div id="canvas" className="parent_canvas">
             <div id="canvas_child" className="child_canvas">
-                <Spline width="100" heigth="100" scene="https://prod.spline.design/oIn55snhGohRZ7TL/scene.splinecode"/>
+                <Spline scene="https://prod.spline.design/oIn55snhGohRZ7TL/scene.splinecode"/>
             </div>
+            {children}
         </div>
     )
 }

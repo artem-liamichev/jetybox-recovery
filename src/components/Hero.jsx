@@ -5,8 +5,7 @@ import close from "../assets/close-icon.svg";
 import { useTranslation } from "react-i18next";
 import { ReactTyped } from "react-typed";
 import { Dialog, Transition } from "@headlessui/react";
-
-
+import Experience from "./Experience";
 
 function Hero() {
   const [recipient_email, setEmail] = useState(
@@ -82,40 +81,81 @@ function Hero() {
   }
 
   return (
+      <>
       <div
-          className="relative md:justify-items-start grid-rows-auto mt-10 md:mt-40 px-4 md:px-4 pb-[75px] md:grid md:grid-cols-2">
-        <h1 className="md:row-start-1 md:row-end-2 md:col-span-1 md:col-start-1 font-['Plateia'] text-left md:leading-[131%] md:text-[42px] uppercase leading-[123%] text-[26px]">
+          className="relative mt-8 flex flex-col px-4 pb-[75px] md:mt-40 md:grid md:grid-cols-2 md:items-start md:gap-x-8">
+        <div className="z-10 flex max-w-[540px] flex-col items-start text-left text-white md:col-start-1 md:row-start-1">
+        <h1 className="font-[Plateia] text-[26px] font-normal uppercase leading-[1.15] tracking-wide text-white whitespace-pre-line md:text-[42px] md:leading-[1.31]">
           {t("comprehensive-solutions")}
         </h1>
-        <h3 className="absolute md:text-2xl md:row-start-2 md:col-span-1 md:col-start-1 font-sans leading-4 mt-2 md:mt-7 text-left">
+        <div className="hero-typed mt-2 min-h-[1.5rem] text-left text-sm font-normal normal-case leading-snug text-white md:mt-5 md:min-h-[2rem] md:text-xl md:leading-6">
           <ReactTyped
               strings={[
-                t("need-department"),
-                t("need-optimisation"),
-                t("need-channel"),
-                t("need-test"),
-                t("need-team"),
-                t("need-product"),
+                t("in-marketing"),
+                t("in-brand"),
+                t("in-product"),
+                t("in-analytics"),
+                t("in-design"),
               ]}
-              typeSpeed={50}
-              backSpeed={30}
+              typeSpeed={45}
+              backSpeed={28}
+              backDelay={1800}
               loop
+              smartBackspace
+              showCursor
+              cursorChar="|"
           />
-        </h3>
-        <div
-            className="md:row-start-3 md:col-span-1 md:col-start-1 mt-96 md:mt-24 flex items-center justify-center gap-6">
-          <img src={magic}/>
-          <p className="font-gilroy text-xs leading-4 text-left w-[267px]">
+        </div>
+        </div>
+        <div className="hero-spline-column mt-0 flex w-full flex-col items-center justify-center pb-0 pt-0 md:col-start-2 md:mt-0 md:row-span-2 md:row-start-1 md:min-h-[520px] md:justify-end md:self-start md:py-0 md:pb-0 md:pt-0">
+          <div className="w-full max-w-[352px] md:max-w-none">
+            <Experience>
+              <div className="mt-2 flex w-full flex-row items-start gap-3 px-[10px] text-left text-white md:hidden">
+                <img
+                    src={magic}
+                    alt=""
+                    className="mt-0.5 h-[30px] w-[37px] shrink-0 object-contain"
+                    width={37}
+                    height={30}
+                    loading="lazy"
+                />
+                <p className="flex-1 font-[Helvetica] text-left text-[11px] font-normal leading-[1.2] text-white">
+                  {t("get-system-solution")}
+                </p>
+              </div>
+            </Experience>
+          </div>
+          <div className="mt-5 flex w-full justify-center md:hidden">
+            <button type="button" onClick={openModal} className="w-full max-w-[339px]">
+              <div className="main-button button-shadow flex min-h-[50px] items-center justify-center px-4">
+                <span>{t("get-audit")}</span>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div className="z-10 hidden w-full max-w-[540px] flex-col text-left text-white md:col-start-1 md:row-start-2 md:flex md:items-start">
+        <div className="mt-3 flex w-full flex-row items-start gap-3 md:mt-0 md:items-center md:gap-4">
+          <img
+              src={magic}
+              alt=""
+              className="mt-0.5 h-[30px] w-[37px] shrink-0 object-contain md:mt-0 md:h-8 md:w-10"
+              width={37}
+              height={30}
+              loading="lazy"
+          />
+          <p className="flex-1 font-[Gilroy] text-left text-xs font-normal leading-snug text-white md:flex-none md:text-sm md:leading-relaxed">
             {t("get-system-solution")}
           </p>
         </div>
-        <div className="mt-9 md:mt-4 md:col-span-1 md:col-start-1 md:row-start-4">
-          <button onClick={openModal} className="w-[339px]">
-            <div className="main-button button-shadow flex items-center justify-center">
+        <div className="mt-5 flex w-full justify-center md:mt-10 md:justify-start">
+          <button type="button" onClick={openModal} className="w-full max-w-[339px]">
+            <div className="main-button button-shadow flex min-h-[50px] items-center justify-center px-4">
               <span>{t("get-audit")}</span>
             </div>
           </button>
         </div>
+        </div>
+      </div>
         <Transition
             show={isOpen}
             enter="transition duration-100 ease-out"
@@ -259,7 +299,7 @@ function Hero() {
             </div>
           </Dialog>
         </Transition>
-      </div>
+      </>
   );
 }
 
