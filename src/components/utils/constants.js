@@ -1,10 +1,10 @@
 import i18n from "./18n";
-import income from "../../../archive-build/assets/slide-income-Waf4chYw.webp";
-import marketing from "../../../archive-build/assets/slide-marketing-Bkt-0A-8.webp";
-import processes from "../../../archive-build/assets/slide-processes-Bw0mKP4s.webp";
-import product from "../../../archive-build/assets/slide-product-BJ3krgMq.webp";
-import team from "../../../archive-build/assets/slide-team-B6im7yBb.webp";
-import testing from "../../../archive-build/assets/slide-testing-D_vt1M9C.webp";
+import income from "../../assets/slide-income.webp";
+import marketing from "../../assets/slide-marketing.webp";
+import processes from "../../assets/slide-processes.webp";
+import product from "../../assets/slide-product.webp";
+import team from "../../assets/slide-team.webp";
+import testing from "../../assets/slide-testing.webp";
 
 import questionsAnalytics from "../../assets/questions-analytics.svg";
 import questionsMarketing from "../../assets/questions-marketing.svg";
