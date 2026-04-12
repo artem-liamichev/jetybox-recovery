@@ -12,6 +12,7 @@ import Marquee from "./components/Marquee";
 import SlideExpirience from "./components/SlideExpirience.jsx";
 import ProjectsPage from "./components/ProjectsPage.jsx";
 import ProjectCasePage from "./components/ProjectCasePage.jsx";
+import Experience from "./components/Experience.jsx";
 
 const LOADER_LOGO_SRC = "/assets/logo-Jpnsoa0I.png";
 const HOME_LOADER_FLAG = "show-home-loader";
@@ -102,6 +103,7 @@ export default function App() {
             ) : (
                 <>
                     <Hero />
+                    <Experience />
                     <SlideExpirience />
                     <Marquee />
                     <div className="relative">

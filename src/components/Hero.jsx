@@ -5,7 +5,6 @@ import close from "../assets/close-icon.svg";
 import { useTranslation } from "react-i18next";
 import { ReactTyped } from "react-typed";
 import { Dialog, Transition } from "@headlessui/react";
-import Experience from "./Experience";
 
 function Hero() {
   const [recipient_email, setEmail] = useState(
@@ -107,24 +106,19 @@ function Hero() {
           />
         </div>
         </div>
-        <div className="hero-spline-column mt-0 flex w-full flex-col items-center justify-center pb-0 pt-0 md:col-start-2 md:mt-0 md:row-span-2 md:row-start-1 md:min-h-[520px] md:justify-end md:self-start md:py-0 md:pb-0 md:pt-0">
-          <div className="w-full max-w-[352px] md:max-w-none">
-            <Experience>
-              <div className="mt-2 flex w-full flex-row items-start gap-3 px-[10px] text-left text-white md:hidden">
-                <img
-                    src={magic}
-                    alt=""
-                    className="mt-0.5 h-[30px] w-[37px] shrink-0 object-contain"
-                    width={37}
-                    height={30}
-                    loading="lazy"
-                />
-                <p className="flex-1 font-[Helvetica] text-left text-[11px] font-normal leading-[1.2] text-white">
-                  {t("get-system-solution")}
-                </p>
-              </div>
-            </Experience>
-          </div>
+        <div className="mx-auto mt-96 flex w-fit max-w-[352px] flex-row items-center justify-center gap-3 px-0 text-left text-white md:hidden">
+            <img
+                src={magic}
+                alt=""
+                className="h-[30px] w-[37px] shrink-0 object-contain"
+                width={37}
+                height={30}
+                loading="lazy"
+            />
+            <p className="w-[267px] font-[Helvetica] text-left text-[11px] font-normal leading-[1.2] text-white">
+              {t("get-system-solution")}
+            </p>
+        </div>
           <div className="mt-5 flex w-full justify-center md:hidden">
             <button type="button" onClick={openModal} className="w-full max-w-[339px]">
               <div className="main-button button-shadow flex min-h-[50px] items-center justify-center px-4">
@@ -132,8 +126,7 @@ function Hero() {
               </div>
             </button>
           </div>
-        </div>
-        <div className="z-10 hidden w-full max-w-[540px] flex-col text-left text-white md:col-start-1 md:row-start-2 md:-mt-20 md:flex md:items-start">
+        <div className="z-10 hidden w-full max-w-[540px] flex-col text-left text-white md:col-start-1 md:row-start-2 md:mt-12 md:flex md:items-start">
         <div className="mt-3 flex w-full max-w-[320px] flex-row items-start gap-3 md:mt-0 md:items-start md:gap-4">
           <img
               src={magic}
@@ -143,7 +136,7 @@ function Hero() {
               height={30}
               loading="lazy"
           />
-          <p className="w-[267px] font-[Gilroy] text-left text-xs font-normal leading-4 text-white md:flex-none">
+          <p className="w-[267px] font-[Helvetica] text-left text-xs font-normal leading-4 text-white md:flex-none">
             {t("get-system-solution")}
           </p>
         </div>

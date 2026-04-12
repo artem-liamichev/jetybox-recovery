@@ -124,6 +124,18 @@
   z-index: 30;
 }
 
+.child_canvas > div {
+  width: 100% !important;
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+.child_canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .canvas {
   touch-action: auto !important;
 }
@@ -145,6 +157,10 @@
 
 .swiper_wrapper {
   min-height: 570px;
+}
+
+#first_slide {
+  display: none;
 }
 
 .swiper_slide {
@@ -202,51 +218,23 @@
 
   .sticky {
     position: fixed !important;
-    top: 35%;
-    left: 50%;
-    right: auto !important;
-    width: min(100%, 316px);
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    display: flex;
-    justify-content: center;
-    transform: translateX(-50%);
+    top: 10rem !important;
   }
 
-  .hero-spline-column {
-    gap: 0;
+  .parent_canvas {
+    height: 410px;
+    width: 90vw;
+    top: 13rem;
+    left: 5%;
+    right: 5%;
   }
 
-  /* Spline в потоке между заголовком и текстом Hero (мобильная вёрстка) */
-  .hero-spline-column .parent_canvas {
-    position: relative !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: min(100%, 316px) !important;
-    max-width: 100%;
-    height: auto !important;
-    aspect-ratio: 720 / 892;
-    margin-left: auto;
-    margin-right: auto;
+  .child_canvas {
     overflow: visible;
   }
 
-  .hero-spline-column .child_canvas {
-    height: 100% !important;
-    overflow: visible !important;
-  }
-
-  .hero-spline-column .child_canvas > div {
-    overflow: visible !important;
-  }
-
-  .hero-spline-column canvas {
-    transform: translateY(10px);
+  canvas {
+    transform: none;
     transform-origin: center top;
   }
 
@@ -277,26 +265,19 @@
 
   .sticky {
     position: fixed !important;
-    top: 5vh;
+    top: 5vh !important;
     width: 450px;
     height: 450px;
   }
 
-  .hero-spline-column {
-    position: relative;
-  }
-
-  .hero-spline-column .parent_canvas {
-    position: absolute !important;
-    top: 2rem;
+  .parent_canvas {
+    top: 7rem;
+    right: 50%;
     left: 50%;
-    transform: translateX(-50%) !important;
-    right: auto !important;
-    width: 550px !important;
-    height: 510px !important;
   }
 
   .swiper_container {
+    margin-top: 5rem;
     width: 100%;
   }
 }
