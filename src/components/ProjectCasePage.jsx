@@ -98,6 +98,7 @@ function ProjectCasePage({ projectId }) {
   }
 
   const team = collectSequentialValues(bundle?.projects, `developedByProject${projectId}`);
+  const displayedTeam = team.length > 0 ? team : ["JetyBox"];
   const results = collectProjectResults(bundle, projectId);
   const taskText = t(`projects.taskProject-${projectId}`);
 
@@ -132,18 +133,16 @@ function ProjectCasePage({ projectId }) {
               </p>
             </div>
 
-            {team.length > 0 && (
-              <div className="md:max-w-[320px]">
-                <h2 className="font-[Helvetica] text-sm text-white/70 md:text-[16px] md:text-white">
-                  {t("projects.developedBy")}:
-                </h2>
-                <div className="mt-6 flex flex-col gap-1 font-[Helvetica] text-[13px] leading-[1.25] text-white/85 md:text-[18px] md:leading-[1.45] md:text-white">
-                  {team.map((member) => (
-                    <p key={member}>{member}</p>
-                  ))}
-                </div>
+            <div className="md:max-w-[320px]">
+              <h2 className="font-[Helvetica] text-sm text-white/70 md:text-[16px] md:text-white">
+                {t("projects.developedBy")}:
+              </h2>
+              <div className="mt-6 flex flex-col gap-1 font-[Helvetica] text-[13px] leading-[1.25] text-white/85 md:text-[18px] md:leading-[1.45] md:text-white">
+                {displayedTeam.map((member) => (
+                  <p key={member}>{member}</p>
+                ))}
               </div>
-            )}
+            </div>
           </div>
 
           {projectImages.length > 0 && (
