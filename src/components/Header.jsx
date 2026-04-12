@@ -79,7 +79,7 @@ function Header() {
   );
 
   return (
-    <header className="relative top-3 z-[120] w-full min-w-[375px] border-white bg-[#333333_43%] px-4 md:absolute md:inset-x-0 md:top-0 md:bg-[#333333] md:px-0">
+    <header className="relative z-[120] w-full min-w-[375px] border-white bg-[#333333_43%] px-4 md:absolute md:inset-x-0 md:top-0 md:bg-[#333333] md:px-0">
       <nav className="relative z-[120] flex items-center justify-between pt-3 md:m-auto md:h-[70px] md:max-w-[1170px] md:px-4 md:pt-0">
         <Listbox
           value={selected}
@@ -193,10 +193,12 @@ function Header() {
         {isOpen && (
           <div
             ref={menuRef}
-            className="z-10 w-[309px] flex flex-col backdrop-filter backdrop-blur-lg bg-[#2c2c2c] absolute -top-6 -right-4 px-5 pb-5 rounded-none text-white md:top-0 md:right-0"
+            className="z-[150] w-[309px] max-w-[calc(100vw-0px)] flex flex-col backdrop-filter backdrop-blur-lg bg-gray-800 bg-opacity-50 absolute top-0 right-0 px-5 text-white rounded-lg"
             style={{
               backgroundImage:
                 "radial-gradient(circle at 50% 4%, rgba(255,255,255,0.22), rgba(255,255,255,0.02) 18%, rgba(0,0,0,0) 36%)",
+              background: "rgba(44, 44, 44, 0.72)",
+              backdropFilter: "blur(16px)",
             }}
           >
             <button
