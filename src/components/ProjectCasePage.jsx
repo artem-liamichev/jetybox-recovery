@@ -104,8 +104,8 @@ function ProjectCasePage({ projectId }) {
 
   return (
     <>
-      <main className="min-h-screen bg-[#2c2c2c] px-4 pb-0 pt-8 md:px-0">
-        <section className="pt-[34px] md:mx-auto md:max-w-[1170px] md:pt-[14px] md:px-4">
+      <main className="min-h-screen bg-[#2c2c2c] px-4 pb-0 pt-0 md:pt-8 md:px-0">
+        <section className="pt-0 md:mx-auto md:max-w-[1170px] md:pt-[14px] md:px-4">
           <a
             href="/projects"
             onClick={(event) => {
@@ -119,7 +119,7 @@ function ProjectCasePage({ projectId }) {
             {t("projectsPageLink", { defaultValue: "Наши проекты" })}
           </a>
 
-          <h1 className="max-w-[320px] text-left font-[Plateia] text-[34px] uppercase leading-[0.95] text-white md:mt-16 md:mb-12 md:max-w-[1120px] md:text-4xl md:leading-[1.02]">
+          <h1 className="mt-10 max-w-[320px] text-left font-[Plateia] text-[34px] uppercase leading-[0.95] text-white md:mt-16 md:mb-12 md:max-w-[1120px] md:text-4xl md:leading-[1.02]">
             {t(`projects.projectName-${projectId}`)}
           </h1>
 
