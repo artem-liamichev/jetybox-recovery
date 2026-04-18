@@ -222,7 +222,9 @@ function PadelSection({ title, children }) {
 }
 
 function PadelCasePage() {
+  const { i18n } = useTranslation();
   const [lightboxImage, setLightboxImage] = useState(null);
+  const isEnglish = i18n.resolvedLanguage === "en";
 
   const navigateBack = (event) => {
     event.preventDefault();
@@ -230,6 +232,280 @@ function PadelCasePage() {
     window.dispatchEvent(new PopStateEvent("popstate"));
     window.scrollTo({ top: 0, behavior: "auto" });
   };
+
+  if (isEnglish) {
+    return (
+      <>
+        <main className="bg-[#2c2c2c] px-4 pb-0 pt-0 text-left md:px-0 md:pt-8">
+          <article className="mx-auto max-w-[960px] pb-10 pt-0 md:px-4 md:pt-[14px]">
+            <a
+              href="/projects"
+              onClick={navigateBack}
+              className="hidden font-[Helvetica] text-[14px] text-white/70 transition hover:text-white md:inline-block"
+            >
+              Our projects
+            </a>
+
+            <header className="py-10 md:py-16">
+              <h1 className="font-[Helvetica] text-[36px] font-bold leading-[1.04] text-white md:text-[62px]">
+                JetyPadel Cases: marketing, analytics, and growth for padel projects
+              </h1>
+            </header>
+
+            <div className="mb-6 space-y-6 text-left text-white md:mb-10 md:grid md:grid-cols-[minmax(0,620px)_minmax(0,320px)] md:items-start md:gap-x-[78px] md:space-y-0">
+              <div className="md:max-w-[620px]">
+                <h2 className="font-[Helvetica] text-sm text-white/70">
+                  Task:
+                </h2>
+                <p className="mt-6 max-w-[330px] font-[Helvetica] text-[13px] leading-[1.35] text-white/85 md:max-w-[560px] md:text-[18px] md:leading-[1.45] md:text-white">
+                  Build systematic promotion for JetyPadel and related padel projects: audits for communities and clubs, lead generation, websites, content, equipment customization, and end-to-end analytics.
+                </p>
+              </div>
+
+              <div className="md:max-w-[320px]">
+                <h2 className="font-[Helvetica] text-sm text-white/70 md:text-[16px] md:text-white">
+                  Developed by:
+                </h2>
+                <div className="mt-6 flex flex-col gap-1 font-[Helvetica] text-[13px] leading-[1.25] text-white/85 md:text-[18px] md:leading-[1.45] md:text-white">
+                  <p>JetyBox</p>
+                  <p>JetyPadel</p>
+                </div>
+              </div>
+            </div>
+
+            <PadelSection title="JetyPadel cases: how we grow projects in the padel industry">
+              <p>
+                JetyPadel is marketing, analytics, and growth for padel projects. We work with clubs, communities, federations, developers, and equipment brands, building systematic promotion in the padel niche.
+              </p>
+              <p>Below are selected implemented cases and work directions.</p>
+            </PadelSection>
+
+            <PadelSection title="Marketing audits for padel communities and clubs">
+              <p>
+                We conducted marketing audits and prepared growth, content, and monetization recommendations for the following projects:
+              </p>
+              <ul className="flex list-disc flex-col gap-3 pl-5">
+                <li>
+                  <strong>Padel Community</strong> - Telegram community:{" "}
+                  <ExternalLink href={PADEL_LINKS.padelclub}>
+                    padelclub_ru
+                  </ExternalLink>
+                </li>
+                <li>
+                  <strong>WARSAW PADEL BANDA</strong> - Polish padel community
+                </li>
+                <li>
+                  <strong>Padel Friends Community (Luzhniki)</strong>:{" "}
+                  <ExternalLink href={PADEL_LINKS.padelFriends}>
+                    padelfriends
+                  </ExternalLink>
+                </li>
+                <li>
+                  <strong>Padel Bay</strong> - padel club:{" "}
+                  <ExternalLink href={PADEL_LINKS.padelBay}>
+                    padel-bay.com/rus
+                  </ExternalLink>
+                </li>
+              </ul>
+              <p>As part of the audits, we analyzed:</p>
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>growth points</li>
+                <li>content and engagement</li>
+                <li>acquisition channels</li>
+                <li>monetization and partnerships</li>
+              </ul>
+            </PadelSection>
+
+            <PadelSection title="Lead generation for court construction and installation">
+              <p>
+                For <strong>NevaSport</strong>, we provide qualified <strong>leads for padel court construction and installation</strong>.
+              </p>
+              <p>The work includes:</p>
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>attracting entrepreneurs and investors</li>
+                <li>filtering requests</li>
+                <li>transferring leads</li>
+                <li>channel analytics and optimization</li>
+              </ul>
+              <p>This direction is especially relevant for regional markets.</p>
+            </PadelSection>
+
+            <PadelSection title="Content and media for padel clubs">
+              <p>
+                We implemented a <strong>joint content project</strong> for the <strong>PadelPro</strong> padel club in Saint Petersburg:
+              </p>
+              <ProjectImage
+                src={PADEL_MEDIA.padelProOne}
+                alt="Content for PadelPro padel club"
+                className="w-[196px] max-w-full rounded-[2px] border border-white/10 object-cover"
+                onOpen={setLightboxImage}
+              />
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>video production</li>
+                <li>social media content</li>
+                <li>engagement work</li>
+                <li>increasing club awareness</li>
+              </ul>
+              <ProjectImage
+                src={PADEL_MEDIA.padelProTwo}
+                alt="Media for PadelPro padel club"
+                className="w-[520px] max-w-full rounded-[2px] border border-white/10 object-cover"
+                onOpen={setLightboxImage}
+              />
+              <p>The content became the starting point for cooperation with the club.</p>
+              <p>
+                Examples:{" "}
+                <ExternalLink href={PADEL_LINKS.reelOne}>Video</ExternalLink>,{" "}
+                <ExternalLink href={PADEL_LINKS.reelTwo}>Video</ExternalLink>,{" "}
+                <ExternalLink href={PADEL_LINKS.reelThree}>Video</ExternalLink>
+              </p>
+            </PadelSection>
+
+            <PadelSection title="Website creation for padel clubs">
+              <p>
+                For <strong>AvroraPadel</strong>, we developed a launch website for a club in Saint Petersburg.
+              </p>
+              <p>
+                <strong>
+                  <ExternalLink href={PADEL_LINKS.avrorapadel}>
+                    avrorapadel.ru
+                  </ExternalLink>
+                </strong>
+              </p>
+              <p>Tasks:</p>
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>club presentation</li>
+                <li>attracting first clients</li>
+                <li>preparing for paid traffic</li>
+                <li>building the SEO foundation</li>
+              </ul>
+              <p>The website became the foundation for further marketing.</p>
+            </PadelSection>
+
+            <PadelSection title="Customization of rackets and equipment">
+              <p>JetyPadel also works with:</p>
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>
+                  <strong>individual customization</strong>
+                </li>
+                <li>
+                  <strong>wholesale production</strong>
+                </li>
+                <li>branding for clubs, academies, and tournaments</li>
+              </ul>
+              <p>We work together with partners on:</p>
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>rackets</li>
+                <li>equipment</li>
+                <li>accessories</li>
+                <li>corporate and club batches</li>
+              </ul>
+              <p>
+                Customization is used as a marketing and image-building tool.
+              </p>
+              <p>
+                More details on the website:{" "}
+                <ExternalLink href={PADEL_LINKS.custom}>
+                  jetypadel.ru/kastom-padel
+                </ExternalLink>
+              </p>
+            </PadelSection>
+
+            <PadelSection title="End-to-end analytics for the project">
+              <p>Marketing department report</p>
+              <ProjectImage
+                src={PADEL_MEDIA.analytics}
+                alt="JetyPadel marketing department report"
+                className="w-full rounded-[2px] border border-white/10 object-cover"
+                onOpen={setLightboxImage}
+              />
+              <div className="h-px w-full bg-white/20" />
+              <p>Sales department report</p>
+              <ProjectImage
+                src={PADEL_MEDIA.sales}
+                alt="JetyPadel sales department report"
+                className="w-full rounded-[2px] border border-white/10 object-cover"
+                onOpen={setLightboxImage}
+              />
+              <p>
+                <ExternalLink href={PADEL_LINKS.analyticsVideo}>
+                  Video - End-to-end Analytics
+                </ExternalLink>
+              </p>
+              <p>
+                <strong>Main JetyBox website with tasks/results:</strong>
+                <br />
+                <ExternalLink href={PADEL_LINKS.jetyboxProjects}>
+                  jetybox.com/projects
+                </ExternalLink>
+              </p>
+              <p>Examples of content we have already created:</p>
+              <p>
+                <ExternalLink href={PADEL_LINKS.sportReel}>
+                  Video - Sports Reel
+                </ExternalLink>
+                <br />
+                <ExternalLink href={PADEL_LINKS.padelVideo}>
+                  Video - Padel
+                </ExternalLink>
+              </p>
+              <p>
+                <ExternalLink href={PADEL_LINKS.allVideos}>All videos</ExternalLink>
+              </p>
+            </PadelSection>
+
+            <PadelSection title="If you are growing a project in the padel industry and want:">
+              <ul className="flex list-disc flex-col gap-2 pl-5">
+                <li>more clients</li>
+                <li>clear marketing</li>
+                <li>strong content</li>
+                <li>systematic growth</li>
+              </ul>
+              <p>
+                The{" "}
+                <strong>
+                  <ExternalLink href={PADEL_LINKS.jetypadel}>JetyPadel</ExternalLink>
+                </strong>{" "}
+                team is ready to join at any stage.
+              </p>
+              <p>
+                Submit a request at{" "}
+                <strong>
+                  <ExternalLink href={PADEL_LINKS.jetypadel}>jetypadel.ru</ExternalLink>
+                </strong>{" "}
+                and we will discuss the cooperation format.
+              </p>
+            </PadelSection>
+
+            <section className="border-t border-white/10 py-8 text-left md:py-10">
+              <h2 className="mb-4 text-left font-bold text-white md:text-[28px]">
+                Results:
+              </h2>
+              <ol className="flex list-decimal flex-col gap-2.5 pl-4 font-[Helvetica] text-[13px] leading-[1.35] text-white/85 marker:text-white/85 md:text-[18px] md:leading-[1.45]">
+                <li>Conducted marketing audits for padel communities and clubs, including Telegram communities, Padel Friends Community, and Padel Bay.</li>
+                <li>Organized lead generation for padel court construction and installation for NevaSport.</li>
+                <li>Launched a content direction for PadelPro: video production, social media materials, and engagement work.</li>
+                <li>Developed a launch website for AvroraPadel and prepared it for paid traffic.</li>
+                <li>Packaged racket and equipment customization as a marketing and image-building tool.</li>
+                <li>Connected end-to-end analytics and collected a base of materials, links, and content examples for further project growth.</li>
+              </ol>
+            </section>
+          </article>
+        </main>
+        <div className="mt-[56px]">
+          <Application />
+        </div>
+        <div className="hidden px-4 md:block">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-white to-transparent md:m-auto md:max-w-[1170px]"></div>
+        </div>
+        <Footer />
+        <ImageLightbox
+          image={lightboxImage}
+          onClose={() => setLightboxImage(null)}
+        />
+      </>
+    );
+  }
 
   return (
     <>
