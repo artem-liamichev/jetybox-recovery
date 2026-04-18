@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Application from "./Application";
 import Footer from "./Footer";
@@ -157,6 +158,56 @@ function ExternalLink({ href, children }) {
   );
 }
 
+function ImageLightbox({ image, onClose }) {
+  useEffect(() => {
+    if (!image) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [image, onClose]);
+
+  if (!image) {
+    return null;
+  }
+
+  return (
+    <button
+      type="button"
+      className="fixed inset-0 z-[1200] flex cursor-zoom-out items-center justify-center bg-black/90 p-4 backdrop-blur-sm md:p-8"
+      onClick={onClose}
+      aria-label="Close image"
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="max-h-full max-w-full rounded-[2px] object-contain shadow-2xl"
+      />
+    </button>
+  );
+}
+
+function ProjectImage({ src, alt, className, onOpen }) {
+  return (
+    <button
+      type="button"
+      className="block cursor-zoom-in text-left"
+      onClick={() => onOpen({ src, alt })}
+      aria-label={alt}
+    >
+      <img src={src} alt={alt} className={className} />
+    </button>
+  );
+}
+
 function PadelSection({ title, children }) {
   return (
     <section className="border-t border-white/10 py-8 md:py-10">
@@ -171,6 +222,8 @@ function PadelSection({ title, children }) {
 }
 
 function PadelCasePage() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   const navigateBack = (event) => {
     event.preventDefault();
     window.history.pushState({}, "", "/projects");
@@ -284,10 +337,11 @@ function PadelCasePage() {
               Мы реализовали <strong>совместный контент-проект</strong> для
               падел-клуба <strong>PadelPro</strong> в Санкт-Петербурге:
             </p>
-            <img
+            <ProjectImage
               src={PADEL_MEDIA.padelProOne}
               alt="Контент для падел-клуба PadelPro"
               className="w-[196px] max-w-full rounded-[2px] border border-white/10 object-cover"
+              onOpen={setLightboxImage}
             />
             <ul className="flex list-disc flex-col gap-2 pl-5">
               <li>видео-съёмки</li>
@@ -295,10 +349,11 @@ function PadelCasePage() {
               <li>работа с вовлечённостью</li>
               <li>усиление узнаваемости клуба</li>
             </ul>
-            <img
+            <ProjectImage
               src={PADEL_MEDIA.padelProTwo}
               alt="Медиа для падел-клуба PadelPro"
               className="w-[520px] max-w-full rounded-[2px] border border-white/10 object-cover"
+              onOpen={setLightboxImage}
             />
             <p>Контент стал началом сотрудничества с клубом.</p>
             <p>
@@ -363,17 +418,19 @@ function PadelCasePage() {
 
           <PadelSection title="Сквозная аналитика для проекта">
             <p>Отчет отдела маркетинга</p>
-            <img
+            <ProjectImage
               src={PADEL_MEDIA.analytics}
               alt="Отчет отдела маркетинга JetyPadel"
               className="w-full rounded-[2px] border border-white/10 object-cover"
+              onOpen={setLightboxImage}
             />
             <div className="h-px w-full bg-white/20" />
             <p>Отчет отдела продаж</p>
-            <img
+            <ProjectImage
               src={PADEL_MEDIA.sales}
               alt="Отчет отдела продаж JetyPadel"
               className="w-full rounded-[2px] border border-white/10 object-cover"
+              onOpen={setLightboxImage}
             />
             <p>
               <ExternalLink href={PADEL_LINKS.analyticsVideo}>
@@ -447,12 +504,17 @@ function PadelCasePage() {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white to-transparent md:m-auto md:max-w-[1170px]"></div>
       </div>
       <Footer />
+      <ImageLightbox
+        image={lightboxImage}
+        onClose={() => setLightboxImage(null)}
+      />
     </>
   );
 }
 
 function ProjectCasePage({ projectId }) {
   const { t, i18n } = useTranslation();
+  const [lightboxImage, setLightboxImage] = useState(null);
   const bundle = i18n.getResourceBundle(i18n.resolvedLanguage, "translation");
   const projectImages = PROJECT_IMAGES[projectId];
 
@@ -519,10 +581,11 @@ function ProjectCasePage({ projectId }) {
                   key={`${projectId}-image-${index}`}
                   className="overflow-hidden rounded-[2px] border border-white/10 bg-[#1f1f1f]"
                 >
-                  <img
+                  <ProjectImage
                     src={projectImage}
                     alt={`${t(`projects.projectName-${projectId}`)} ${index + 1}`}
                     className="h-auto w-full object-cover"
+                    onOpen={setLightboxImage}
                   />
                 </div>
               ))}
@@ -550,6 +613,10 @@ function ProjectCasePage({ projectId }) {
         <div className="h-px w-full bg-gradient-to-r from-transparent via-white to-transparent md:m-auto md:max-w-[1170px]"></div>
       </div>
       <Footer />
+      <ImageLightbox
+        image={lightboxImage}
+        onClose={() => setLightboxImage(null)}
+      />
     </>
   );
 }
