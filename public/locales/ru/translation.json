@@ -4,7 +4,6 @@
   "building-marketing-department": "в построении отдела маркетинга",
   "get-system-solution": "Получите в свой проект системный бокс решений, который увеличит вашу прибыль",
   "get-audit": "Получить аудит проекта",
-
   "Solutions": "Решения",
   "Projects": "Наши проекты",
   "Development": "Разработка",
@@ -14,7 +13,6 @@
   "CRM Systems": "CRM системы",
   "Analytics": "Аналитика",
   "social-networks": "Социальные сети",
-
   "where-to-start": "Вам хочется найти решение задачи?",
   "we-audit": "Мы сделаем аудит проекта и вы получите рекомендации, оптимальный состав команды для достижения поставленной бизнес-задачи",
   "name": "Имя",
@@ -23,12 +21,9 @@
   "i-confirm": "Подтверждаю, что я ознакомлен с",
   "privacy-policy": "политикой конфиденциальности",
   "i-consent": "и даю свое согласие на сбор и обработку персональных данных",
-
   "tasks-we-solve": "Какие задачи решаем",
-
   "practical-experience": "Практический опыт с 2018 года",
   "presence": "Представительство - Европа и Россия",
-
   "if": "Если...",
   "need-department": "Вы строите маркетинговый отдел",
   "need-channel": "Вам нужно понимать какую прибыль приносит каждый рекламный канал",
@@ -36,13 +31,11 @@
   "need-product": "Вам нужно создать продукт с 0 или доработать текущий продукт",
   "need-optimisation": "Вам нужна оптимизация процессов внутри отдела Продаж и отдела Маркетинга",
   "need-test": "Вам нужно затестировать гипотезу",
-
   "in-marketing": "в построении отдела маркетинга",
   "in-brand": "в создании бренда и рекламе",
   "in-product": "в создании продукта",
   "in-analytics": "в бизнес аналитике",
   "in-design": "в дизайне",
-
   "we-help": "Мы с этим поможем",
   "question-1": "Создание маркетингового отдела под ключ",
   "answer-1": "Соберем маркетинговый отдел с 0",
@@ -55,7 +48,6 @@
   "question-5": "Реклама и аналитика",
   "answer-5": "Создание комплекса маркетинговых систем и внедрение сквозной аналитики под ваш продукт",
   "send-request": "Оставить заявку",
-
   "covering-a-wide": "Охватываем широкую нишевую область",
   "event-organization": "Организация мероприятий",
   "design-products": "Дизайнерские изделия",
@@ -64,7 +56,6 @@
   "data-analysis": "Анализ данных",
   "recycling-raw-materials": "Переработка вторсырья",
   "repair-production": "Ремонт и производство продукции",
-
   "how-work": "Как будем работать",
   "conduct": "Проведем",
   "interview": "Интервью",
@@ -78,14 +69,12 @@
   "to-work": "в работу",
   "dedugin": "ИП Дедюгин А.А",
   "ok": "Понятно",
-
   "design_url": "https://prod.spline.design/gkNnQWyi2DRrSWEg/scene.splinecode",
   "ad_url": "https://prod.spline.design/6rTdJAxNBWefVvVx/scene.splinecode",
   "dev_url": "https://prod.spline.design/YFLT2i2dm5ijHhEA/scene.splinecode",
   "analytics_url": "https://prod.spline.design/EWxSE51dAL3U9-uZ/scene.splinecode",
   "telephony_url": "https://prod.spline.design/KONgPQuhDhSabnmZ/scene.splinecode",
   "crm_url": "https://prod.spline.design/LAZyKwTp1gpXmhve/scene.splinecode",
-
   "carousel_title": "какие задачи решаем",
   "we-will-call": "Спасибо за заявку, наш менеджер свяжется с вами",
   "leave-request": "Оставьте заявку, что бы мы могли вам перезвонить",
@@ -113,7 +102,7 @@
     "taskProject-7": "Найм команды по трафику в компанию. Изменение и создание посадочных страниц. Настройка сквозной аналитики.",
     "taskProject-8": "Создание системы контроля отдела маркетинга. Подключение ip телефонии и сервисов аналитики",
     "developedByProject2-1": "Павел",
-    "developedByProject2-2": "Андрей",    
+    "developedByProject2-2": "Андрей",
     "developedByProject2-3": "Андрей A",
     "developedByProject3-1": "Максим Гаврилов",
     "developedByProject3-2": "Александр",
@@ -137,10 +126,13 @@
     "developedByProject7-1": "Павел",
     "developedByProject7-2": "Анна",
     "developedByProject8-1": "Анна",
-    "where-to-start": "Вам хочется найти решение задачи?"
+    "where-to-start": "Вам хочется найти решение задачи?",
+    "projectName-9": "JetyPadel",
+    "taskProject-9": "Упаковка и продвижение падел-проекта: позиционирование бренда, посадочные страницы, рекламные кампании, контент, аналитика и привлечение спроса для клубов, тренеров и турниров.",
+    "developedByProject9-1": "JetyBox",
+    "developedByProject9-2": "JetyPadel"
   },
   "results": "Результаты",
-
   "resultsProject1": {
     "taskProject1": "Создание сайта (Прототип, Дизайн, Программирование):",
     "taskProject1-2": "https://nymphealook.ru",
@@ -222,5 +214,14 @@
     "taskProject5": "Подключение IP-телефонии к компании и интеграция с сервисом сквозной аналитики Roistat. Интеграция с AmoCRM",
     "taskProject6": "Подключение сервиса сквозной аналитики Roistat",
     "taskProject7": "Формирование отчетов для отслеживания эффективности работы: прорабов, менеджеров по продажам, логиста"
+  },
+  "resultsProject9": {
+    "taskProject1": "Сформировали позиционирование маркетингового продукта для падела и связали его с экосистемой JetyPadel.",
+    "taskProject2": "Подготовили логику посадочных страниц и коммуникацию для клубов, тренеров, турниров и падел-сервисов.",
+    "taskProject3": "Описали рекламные воронки для лидогенерации, продвижения мероприятий и роста комьюнити.",
+    "taskProject4": "Собрали структуру продвижения: контент-маркетинг, социальные сети, performance-каналы и аналитика.",
+    "taskProject5": "Основной сайт JetyBox с указанными задачами и результатами: https://jetybox.com/projects",
+    "taskProject6": "Сайт проекта JetyPadel: https://jetypadel.ru",
+    "taskProject7": "Исходный кейс: https://jetypadel.ru/blog/keysy-padel-jetypadel"
   }
 }

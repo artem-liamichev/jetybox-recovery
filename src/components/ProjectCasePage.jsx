@@ -31,6 +31,7 @@ const PROJECT_IMAGES = {
   6: [timeToTalkHero],
   7: [],
   8: [repairLinks, repairReport, repairSummary],
+  9: [],
 };
 
 const PROJECT_CATEGORY_KEYS = {
@@ -42,6 +43,7 @@ const PROJECT_CATEGORY_KEYS = {
   6: "projects.development",
   7: "projects.marketing",
   8: "projects.marketing",
+  9: "projects.marketing",
 };
 
 function collectSequentialValues(source, baseKey) {
@@ -84,8 +86,369 @@ function collectProjectResults(bundle, projectId) {
     .map((key) => section[key]);
 }
 
-function isUrl(value) {
-  return /^https?:\/\//i.test(value);
+function renderTextWithLinks(value) {
+  const parts = String(value).split(/(https?:\/\/[^\s]+)/g);
+
+  return parts.map((part, index) => {
+    if (!/^https?:\/\//i.test(part)) {
+      return part;
+    }
+
+    const url = part.replace(/[.,;:)]$/, "");
+    const suffix = part.slice(url.length);
+
+    return (
+      <span key={`${url}-${index}`}>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="break-all underline underline-offset-2"
+        >
+          {url}
+        </a>
+        {suffix}
+      </span>
+    );
+  });
+}
+
+const PADEL_LINKS = {
+  padelclub: "https://t.me/padelclub_ru",
+  padelFriends: "https://t.me/padelfriends",
+  padelBay: "https://padel-bay.com/rus",
+  reelOne: "https://www.instagram.com/reel/DNDvt8IR8ft/",
+  reelTwo: "https://www.instagram.com/reel/DMckf6vIk59/",
+  reelThree: "https://www.instagram.com/reel/DL5Q3bkIUML/",
+  avrorapadel: "https://avrorapadel.ru/",
+  custom: "https://jetypadel.ru/kastom-padel",
+  analyticsVideo: "https://www.instagram.com/p/DHTmHK8IdX2/",
+  jetyboxProjects: "https://jetybox.com/projects",
+  sportReel:
+    "https://drive.google.com/file/d/1r4EeiMT5vNkWwkIfZjsXyHcNo3dzP-4X/view?usp=drive_link",
+  padelVideo:
+    "https://drive.google.com/file/d/1ls-Bv8slrHt3ErqtBzJgLftL44_GofWA/view?usp=sharing",
+  allVideos:
+    "https://docs.google.com/document/d/1y0UIiCDWI1yNp7hNEHkY3BZsF_sT9rafKYQJ-WPp5V4/edit?tab=t.0",
+  jetypadel: "https://jetypadel.ru/",
+};
+
+const PADEL_MEDIA = {
+  padelProOne:
+    "https://static.tildacdn.com/tild3830-6230-4934-a631-366661643161/image.png",
+  padelProTwo:
+    "https://static.tildacdn.com/tild3036-3739-4338-b962-633464336432/image.png",
+  analytics:
+    "https://static.tildacdn.com/tild3138-3463-4162-a635-353738306436/3535.png",
+  sales:
+    "https://static.tildacdn.com/tild3732-3561-4266-b536-666331336263/image_2024-07-23_11-.png",
+};
+
+function ExternalLink({ href, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#D69B56] underline underline-offset-4 transition hover:text-[#FDDFBC]"
+    >
+      {children}
+    </a>
+  );
+}
+
+function PadelSection({ title, children }) {
+  return (
+    <section className="border-t border-white/10 py-8 md:py-10">
+      <h2 className="font-[Helvetica] text-[28px] font-bold leading-[1.08] text-white md:text-[42px]">
+        {title}
+      </h2>
+      <div className="mt-5 flex flex-col gap-4 font-[Helvetica] text-[16px] leading-[1.55] text-white/82 md:text-[22px] md:leading-[1.45]">
+        {children}
+      </div>
+    </section>
+  );
+}
+
+function PadelCasePage() {
+  const navigateBack = (event) => {
+    event.preventDefault();
+    window.history.pushState({}, "", "/projects");
+    window.dispatchEvent(new PopStateEvent("popstate"));
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+
+  return (
+    <>
+      <main className="bg-[#2c2c2c] px-4 pb-0 pt-0 text-left md:px-0 md:pt-8">
+        <article className="mx-auto max-w-[960px] pb-10 pt-0 md:px-4 md:pt-[14px]">
+          <a
+            href="/projects"
+            onClick={navigateBack}
+            className="hidden font-[Helvetica] text-[14px] text-white/70 transition hover:text-white md:inline-block"
+          >
+            Наши проекты
+          </a>
+
+          <header className="py-10 md:py-16">
+            <h1 className="font-[Helvetica] text-[36px] font-bold leading-[1.04] text-white md:text-[62px]">
+              Кейсы JetyPadel — маркетинг, аналитика и рост проектов в паделе
+            </h1>
+          </header>
+
+          <div className="mb-6 space-y-6 text-left text-white md:mb-10 md:grid md:grid-cols-[minmax(0,620px)_minmax(0,320px)] md:items-start md:gap-x-[78px] md:space-y-0">
+            <div className="md:max-w-[620px]">
+              <h2 className="font-[Helvetica] text-sm text-white/70">
+                Задача:
+              </h2>
+              <p className="mt-6 max-w-[330px] font-[Helvetica] text-[13px] leading-[1.35] text-white/85 md:max-w-[560px] md:text-[18px] md:leading-[1.45] md:text-white">
+                Выстроить системное продвижение JetyPadel и связанных падел-проектов: аудиты сообществ и клубов, лидогенерация, сайты, контент, кастомизация экипировки и сквозная аналитика.
+              </p>
+            </div>
+
+            <div className="md:max-w-[320px]">
+              <h2 className="font-[Helvetica] text-sm text-white/70 md:text-[16px] md:text-white">
+                Разработал:
+              </h2>
+              <div className="mt-6 flex flex-col gap-1 font-[Helvetica] text-[13px] leading-[1.25] text-white/85 md:text-[18px] md:leading-[1.45] md:text-white">
+                <p>JetyBox</p>
+                <p>JetyPadel</p>
+              </div>
+            </div>
+          </div>
+
+          <PadelSection title="Кейсы JetyPadel: как мы развиваем проекты в индустрии падела">
+            <p>
+              JetyPadel — это маркетинг, аналитика и рост для падел-проектов. Мы
+              работаем с клубами, сообществами, федерациями, девелоперами и
+              брендами экипировки, выстраивая системное продвижение в нише
+              падела.
+            </p>
+            <p>Ниже — часть реализованных кейсов и направлений работы.</p>
+          </PadelSection>
+
+          <PadelSection title="Маркетинговые аудиты падел-сообществ и клубов">
+            <p>
+              Мы провели маркетинговые аудиты и дали рекомендации по росту,
+              контенту и монетизации для следующих проектов:
+            </p>
+            <ul className="flex list-disc flex-col gap-3 pl-5">
+              <li>
+                <strong>Сообщество Падел</strong> — Telegram-сообщество:{" "}
+                <ExternalLink href={PADEL_LINKS.padelclub}>
+                  padelclub_ru
+                </ExternalLink>
+              </li>
+              <li>
+                <strong>WARSAW PADEL BANDA</strong> — польское падел-сообщество
+              </li>
+              <li>
+                <strong>Padel Friends Community (Лужники)</strong>:{" "}
+                <ExternalLink href={PADEL_LINKS.padelFriends}>
+                  padelfriends
+                </ExternalLink>
+              </li>
+              <li>
+                <strong>Padel Bay</strong> — падел-клуб:{" "}
+                <ExternalLink href={PADEL_LINKS.padelBay}>
+                  padel-bay.com/rus
+                </ExternalLink>
+              </li>
+            </ul>
+            <p>В рамках аудитов:</p>
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>анализировали точки роста</li>
+              <li>контент и вовлечённость</li>
+              <li>каналы привлечения</li>
+              <li>монетизацию и партнёрства</li>
+            </ul>
+          </PadelSection>
+
+          <PadelSection title="Лидогенерация на строительство и монтаж кортов">
+            <p>
+              Для организации <strong>НеваСпорт</strong> мы обеспечиваем
+              передачу <strong>заявок на строительство и монтаж падел-кортов</strong>.
+            </p>
+            <p>Работа включает:</p>
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>привлечение предпринимателей и инвесторов</li>
+              <li>фильтрацию заявок</li>
+              <li>передачу лидов</li>
+              <li>аналитику и оптимизацию каналов</li>
+            </ul>
+            <p>Это направление особенно актуально для регионов.</p>
+          </PadelSection>
+
+          <PadelSection title="Контент и медиа для падел-клубов">
+            <p>
+              Мы реализовали <strong>совместный контент-проект</strong> для
+              падел-клуба <strong>PadelPro</strong> в Санкт-Петербурге:
+            </p>
+            <img
+              src={PADEL_MEDIA.padelProOne}
+              alt="Контент для падел-клуба PadelPro"
+              className="w-[196px] max-w-full rounded-[2px] border border-white/10 object-cover"
+            />
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>видео-съёмки</li>
+              <li>контент для соцсетей</li>
+              <li>работа с вовлечённостью</li>
+              <li>усиление узнаваемости клуба</li>
+            </ul>
+            <img
+              src={PADEL_MEDIA.padelProTwo}
+              alt="Медиа для падел-клуба PadelPro"
+              className="w-[520px] max-w-full rounded-[2px] border border-white/10 object-cover"
+            />
+            <p>Контент стал началом сотрудничества с клубом.</p>
+            <p>
+              Посмотреть примеры:{" "}
+              <ExternalLink href={PADEL_LINKS.reelOne}>Видео</ExternalLink>,{" "}
+              <ExternalLink href={PADEL_LINKS.reelTwo}>Видео</ExternalLink>,{" "}
+              <ExternalLink href={PADEL_LINKS.reelThree}>Видео</ExternalLink>
+            </p>
+          </PadelSection>
+
+          <PadelSection title="Создание сайтов для падел-клубов">
+            <p>
+              Для проекта <strong>АврораПадел</strong> мы разработали сайт под
+              запуск клуба в Санкт-Петербурге.
+            </p>
+            <p>
+              <strong>
+                <ExternalLink href={PADEL_LINKS.avrorapadel}>
+                  avrorapadel.ru
+                </ExternalLink>
+              </strong>
+            </p>
+            <p>Задачи:</p>
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>презентация клуба</li>
+              <li>привлечение первых клиентов</li>
+              <li>подготовка к рекламному трафику</li>
+              <li>закладка SEO-фундамента</li>
+            </ul>
+            <p>Сайт стал основой для дальнейшего маркетинга.</p>
+          </PadelSection>
+
+          <PadelSection title="Кастомизация ракеток и экипировки">
+            <p>JetyPadel также занимается:</p>
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>
+                <strong>индивидуальной кастомизацией</strong>
+              </li>
+              <li>
+                <strong>оптовым производством</strong>
+              </li>
+              <li>брендированием для клубов, академий и турниров</li>
+            </ul>
+            <p>Работаем совместно с партнёрами:</p>
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>ракетки</li>
+              <li>экипировка</li>
+              <li>аксессуары</li>
+              <li>корпоративные и клубные партии</li>
+            </ul>
+            <p>
+              Кастомизация используется как маркетинговый и имиджевый
+              инструмент.
+            </p>
+            <p>
+              Подробнее на сайте:{" "}
+              <ExternalLink href={PADEL_LINKS.custom}>
+                jetypadel.ru/kastom-padel
+              </ExternalLink>
+            </p>
+          </PadelSection>
+
+          <PadelSection title="Сквозная аналитика для проекта">
+            <p>Отчет отдела маркетинга</p>
+            <img
+              src={PADEL_MEDIA.analytics}
+              alt="Отчет отдела маркетинга JetyPadel"
+              className="w-full rounded-[2px] border border-white/10 object-cover"
+            />
+            <div className="h-px w-full bg-white/20" />
+            <p>Отчет отдела продаж</p>
+            <img
+              src={PADEL_MEDIA.sales}
+              alt="Отчет отдела продаж JetyPadel"
+              className="w-full rounded-[2px] border border-white/10 object-cover"
+            />
+            <p>
+              <ExternalLink href={PADEL_LINKS.analyticsVideo}>
+                Видео - Сквозная Аналитика
+              </ExternalLink>
+            </p>
+            <p>
+              <strong>Основной сайт jetybox, где указаны задачи/результаты:</strong>
+              <br />
+              <ExternalLink href={PADEL_LINKS.jetyboxProjects}>
+                jetybox.com/projects
+              </ExternalLink>
+            </p>
+            <p>Примеры контента, которые мы уже делали:</p>
+            <p>
+              <ExternalLink href={PADEL_LINKS.sportReel}>
+                Видео - Спортивный рил
+              </ExternalLink>
+              <br />
+              <ExternalLink href={PADEL_LINKS.padelVideo}>
+                Видео - Падел
+              </ExternalLink>
+            </p>
+            <p>
+              <ExternalLink href={PADEL_LINKS.allVideos}>Все видео</ExternalLink>
+            </p>
+          </PadelSection>
+
+          <PadelSection title="Если вы развиваете проект в индустрии падела и хотите:">
+            <ul className="flex list-disc flex-col gap-2 pl-5">
+              <li>больше клиентов</li>
+              <li>понятный маркетинг</li>
+              <li>сильный контент</li>
+              <li>системный рост</li>
+            </ul>
+            <p>
+              Команда{" "}
+              <strong>
+                <ExternalLink href={PADEL_LINKS.jetypadel}>JetyPadel</ExternalLink>
+              </strong>{" "}
+              готова подключиться на любом этапе.
+            </p>
+            <p>
+              Оставьте заявку на{" "}
+              <strong>
+                <ExternalLink href={PADEL_LINKS.jetypadel}>jetypadel.ru</ExternalLink>
+              </strong>{" "}
+              — обсудим формат сотрудничества.
+            </p>
+          </PadelSection>
+
+          <section className="border-t border-white/10 py-8 text-left md:py-10">
+            <h2 className="mb-4 text-left font-bold text-white md:text-[28px]">
+              Результаты:
+            </h2>
+            <ol className="flex list-decimal flex-col gap-2.5 pl-4 font-[Helvetica] text-[13px] leading-[1.35] text-white/85 marker:text-white/85 md:text-[18px] md:leading-[1.45]">
+              <li>Провели маркетинговые аудиты падел-сообществ и клубов, включая Telegram-сообщества, Padel Friends Community и Padel Bay.</li>
+              <li>Организовали лидогенерацию на строительство и монтаж падел-кортов для НеваСпорт.</li>
+              <li>Запустили контентное направление для PadelPro: видео-съёмки, материалы для соцсетей и работа с вовлечённостью.</li>
+              <li>Разработали сайт для АврораПадел под запуск клуба и подготовку к рекламному трафику.</li>
+              <li>Упаковали направление кастомизации ракеток и экипировки как маркетинговый и имиджевый инструмент.</li>
+              <li>Подключили сквозную аналитику и собрали базу материалов, ссылок и примеров контента для дальнейшего роста проекта.</li>
+            </ol>
+          </section>
+        </article>
+      </main>
+      <div className="mt-[56px]">
+        <Application />
+      </div>
+      <div className="hidden px-4 md:block">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-white to-transparent md:m-auto md:max-w-[1170px]"></div>
+      </div>
+      <Footer />
+    </>
+  );
 }
 
 function ProjectCasePage({ projectId }) {
@@ -95,6 +458,10 @@ function ProjectCasePage({ projectId }) {
 
   if (!projectImages) {
     return null;
+  }
+
+  if (projectId === 9) {
+    return <PadelCasePage />;
   }
 
   const team = collectSequentialValues(bundle?.projects, `developedByProject${projectId}`);
@@ -169,18 +536,7 @@ function ProjectCasePage({ projectId }) {
             <ol className="flex list-decimal flex-col gap-2.5 pl-4 font-[Helvetica] text-[13px] leading-[1.35] text-white/85 marker:text-white/85">
               {results.map((item, index) => (
                 <li key={`${projectId}-${index}`}>
-                  {isUrl(item) ? (
-                    <a
-                      href={item}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="break-all underline underline-offset-2"
-                    >
-                      {item}
-                    </a>
-                  ) : (
-                    item
-                  )}
+                  {renderTextWithLinks(item)}
                 </li>
               ))}
             </ol>

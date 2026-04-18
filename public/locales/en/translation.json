@@ -105,6 +105,7 @@
     "projectName-6": "Time to talk",
     "projectName-7": "Legal services",
     "projectName-8": "Repair and Dismantling",
+    "projectName-9": "JetyPadel",
     "taskProject-1": "Creating a brand on social media. Creating a website. Launching ads.",
     "taskProject-2": "Hiring a team. Connecting a CRM system. Creating websites and launching ads.",
     "taskProject-3": "Launching a brand. Creating a website. Connecting a CRM. Launching ads on platforms: Yandex, Avito.",
@@ -113,6 +114,7 @@
     "taskProject-6": "Comprehensive creation of the brand, company products, and support.",
     "taskProject-7": "Hiring a traffic team for the company. Modifying and creating landing pages. Setting up end-to-end analytics.",
     "taskProject-8": "Creating a marketing department control system. Connecting IP telephony and analytics services.",
+    "taskProject-9": "Packaging and promoting a padel project: brand positioning, landing pages, advertising campaigns, content, analytics, and demand generation for clubs, coaches, and tournaments.",
     "developedByProject2-1": "Pavel",
     "developedByProject2-2": "Andrey",
     "developedByProject3-1": "Maxim Gavrilov",
@@ -136,6 +138,8 @@
     "developedByProject7-1": "Pavel",
     "developedByProject7-2": "Anna",
     "developedByProject8-1": "Anna",
+    "developedByProject9-1": "JetyBox",
+    "developedByProject9-2": "JetyPadel",
     "where-to-start": "You want to find a solution to a problem?"
   },
   "results": "Results:",
@@ -220,5 +224,14 @@
     "taskProject5": "Integration of IP telephony with the company and Roistat end-to-end analytics. Integration with AmoCRM",
     "taskProject6": "Integration of Roistat end-to-end analytics",
     "taskProject7": "Report generation to track the performance of foremen, sales managers, and logistician"
+  },
+  "resultsProject9": {
+    "taskProject1": "Created the positioning for a padel-focused marketing product and connected it with the JetyPadel ecosystem.",
+    "taskProject2": "Prepared landing-page logic and communication for clubs, coaches, tournaments, and padel-related services.",
+    "taskProject3": "Outlined advertising funnels for lead generation, event promotion, and community growth.",
+    "taskProject4": "Built a promotion structure covering content marketing, social media, performance channels, and analytics.",
+    "taskProject5": "Main JetyBox website with the referenced tasks and results: https://jetybox.com/projects",
+    "taskProject6": "JetyPadel project website: https://jetypadel.ru",
+    "taskProject7": "Source case: https://jetypadel.ru/blog/keysy-padel-jetypadel"
   }
 }

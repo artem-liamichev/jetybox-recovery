@@ -8,6 +8,7 @@ import projectOption5 from "../assets/projects/project-option5-B80r92Gl.webp";
 import projectOption6 from "../assets/projects/project-option6-BDHwvjz8.webp";
 import projectOption7 from "../assets/projects/project-option7-B8FqdnDD.webp";
 import projectOption8 from "../assets/projects/project-option8-BCmU23X-.webp";
+import projectOption9 from "../assets/projects/project-option9-padel.png";
 
 function ProjectsPage() {
   const { i18n, t } = useTranslation();
@@ -19,6 +20,12 @@ function ProjectsPage() {
   };
 
   const projects = [
+    {
+      id: 9,
+      image: projectOption9,
+      categoryKey: "projects.marketing",
+      titleKey: "projects.projectName-9",
+    },
     {
       id: 1,
       image: projectOption1,

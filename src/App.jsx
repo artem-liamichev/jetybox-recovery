@@ -47,7 +47,7 @@ export default function App() {
     const projectMatch = pathname.match(/^\/projects\/(\d+)$/);
     const projectId = projectMatch ? Number(projectMatch[1]) : null;
     const isProjectCasePage =
-        projectId !== null && projectId >= 1 && projectId <= 8;
+        projectId !== null && projectId >= 1 && projectId <= 9;
 
     useEffect(() => {
         const timer = showLoader();
