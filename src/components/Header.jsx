@@ -347,6 +347,20 @@ function Header() {
                     ></path>
                   </svg>
                 </a>
+
+                <a
+                  href="https://www.google.com/maps/place/jetybox/@59.9389348,30.3738134,17z/data=!3m1!4b1!4m6!3m5!1s0x4696318a6deea029:0xbc2532218e2d99e3!8m2!3d59.9389348!4d30.3763883!16s%2Fg%2F11x0q8w0j8!5m1!1e1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-button flex h-[26px] w-[26px] items-center justify-center rounded rounded-s bg-[#1C1C1C]"
+                >
+                  <svg width="16" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      fill="url(#gradient)"
+                    />
+                  </svg>
+                </a>
               </div>
             </section>
           </div>
